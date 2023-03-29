@@ -3,6 +3,7 @@ package com.m2p;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ArithmeticOperationsTest {
 
@@ -102,5 +103,10 @@ public class ArithmeticOperationsTest {
         int actualValue = operations.divide(-10, -5);
 
         assertEquals(expectedValue, actualValue);
+    }
+
+    @Test
+    void toThrowAnExceptionWhenDividedByZero(){
+        assertThrows(ArithmeticException.class, () -> operations.divide(10, 0));
     }
 }
